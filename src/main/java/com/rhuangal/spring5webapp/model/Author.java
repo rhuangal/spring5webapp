@@ -17,6 +17,11 @@ public class Author {
     public Author() {
     }
 
+    public Author(String firsName, String lastname) {
+        this.firsName = firsName;
+        this.lastname = lastname;
+    }
+
     public Author(String firsName, String lastname, Set<Book> books) {
         this.firsName = firsName;
         this.lastname = lastname;
@@ -65,12 +70,12 @@ public class Author {
 
         Author author = (Author) o;
 
-        return id.equals(author.id);
+        return id != null ? id.equals(author.id) : author.id == null;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
